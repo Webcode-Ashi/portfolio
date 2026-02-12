@@ -1,0 +1,304 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Slab", serif;
+}
+
+body{
+    background: linear-gradient(45deg, black,#111111, #FFFFFF);
+    animation: gradient 10s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradient {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+/* ================= NAV ================= */
+
+#nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+}
+
+#nav img{
+    height: 90px;
+}
+
+#nav ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#nav ul li{
+    padding: 10px;
+    position: relative;
+}
+
+#nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+#nav ul li a::after{
+    content: "";
+    height: 3px;
+    background-color: crimson;
+    width: 0%;
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+    transition: .4s;
+}
+
+#nav ul li a:hover::after{
+    width: 80%;
+}
+
+/* ================= HERO ================= */
+
+#home{
+    width: 100%;
+    padding: 40px 0;
+}
+
+.hero-container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.profile-outer{
+    height: auto;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 1s;
+}
+
+.profile img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid greenyellow;
+}
+
+/* ================= ABOUT ================= */
+
+#about h1{
+    color: crimson;
+    text-align: center;
+}
+
+.about-text{
+    margin: 30px auto;
+    width: 80%;
+    color: white;
+    text-align: justify;
+}
+
+/* ================= SKILLS ================= */
+
+.myskill-box{
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.myskill-box .cart{
+    height: 200px;
+    background: linear-gradient(crimson, purple,blue);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.myskill-box .cart::before{
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, red, blue, purple, cyan);
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.myskill-box .cart:hover::before{
+    opacity: 1;
+}
+
+.myskill-box .cart:hover{
+    transform: translateY(-8px);
+}
+
+.myskill-box .cart img{
+    height: 80%;
+    width: 80%;
+    object-fit: contain;
+}
+
+/* ================= SERVICES ================= */
+
+.myservices-box{
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.myservices-box .cart{
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.myservices-box .cart:hover{
+    background: linear-gradient(crimson, purple,blue);
+    transform: translateY(-8px);
+}
+
+/* ================= PROJECT ================= */
+
+.LatestProject-box{
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.LatestProject-box .cart{
+    border: 2px solid white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.LatestProject-box .cart:hover img{
+    transform: scale(1.2);
+}
+
+.LatestProject-box .cart img{
+    width: 100%;
+    transition: 0.3s;
+}
+
+/* ================= CONTACT ================= */
+
+.cotact-section{
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.let-talk,
+.registertion-page{
+    flex: 1 1 300px;
+}
+
+.registertion-page input,
+.registertion-page textarea{
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: #333;
+    color: white;
+}
+
+.registertion-page button{
+    width: 50%;
+    padding: 10px;
+    background-color: crimson;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer-content{
+    padding: 20px;
+    background-color: purple;
+    color: white;
+    text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px){
+    .myskill-box,
+    .myservices-box,
+    .LatestProject-box{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px){
+
+    #nav{
+        flex-direction: column;
+    }
+
+    #nav ul{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-container{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .myskill-box,
+    .myservices-box,
+    .LatestProject-box{
+        grid-template-columns: 1fr;
+    }
+
+    .cotact-section{
+        flex-direction: column;
+    }
+
+    .info-outer h1{
+        font-size: 2rem;
+    }
+}
