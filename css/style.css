@@ -22,6 +22,7 @@ body{
 }
 .container{
     width: 100%;
+    position: relative;
     /*display: grid;
     grid-template-areas:
     'nav'
@@ -33,6 +34,28 @@ body{
     'contact'
     'footer' ;*/
 }
+.whatsapp a{
+    position: fixed;
+    bottom: 10px;
+    left: 20px;   /* left bhi rakh sakti ho */
+    font-size: 3rem;
+    color: #25D366;
+    padding: 10px;
+    border-radius: 30%;
+    box-shadow: 0 0 5px #25D366;
+    z-index: 1000;
+
+}
+.whatsapp a {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37,211,102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102, 0); }
+}
+
 #nav{
     display: flex;
     align-items: center;
@@ -40,7 +63,13 @@ body{
     background-color: black;
     position: sticky;
     top: 0;
+    padding: 0 1rem;
     z-index: 999;
+}
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
 }
 #nav img{
     height: 110px;
@@ -79,7 +108,6 @@ body{
     transition: .5s ease-in-out;
 }
 .icons{
-    height: 60px;
     width: 25%;
     font-size: 2rem;
     display: flex;
@@ -93,14 +121,41 @@ body{
     color: white;
 }
 .icons a:nth-child(3){
-    color: green;
+    color: aqua;
 }
 .icons a:nth-child(4){
-    color: rgb(56, 56, 182);
-}
-.icons a:nth-child(5){
     color: blue;
 }
+@media (max-width: 900px) {
+    #nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    #nav ul {
+        display: none;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        gap: 10px;
+    }
+    .menu-toggle a{
+        font-size: 6vw;
+
+        color: white;
+    }
+
+    #nav img {
+        height: 70px;
+    }
+}
+
 /*Hero section*/
 #home{
     width: 100%;
@@ -149,7 +204,7 @@ body{
     justify-content: space-evenly;
 }
 .profile-outer{
-    height: 500px;
+    height: auto;
     width: 30%;
     display: flex;
     align-items: center;
@@ -185,7 +240,7 @@ body{
     backface-visibility: hidden;
 }
 .info-outer{
-    height: 500px;
+    height: auto;
     width: 40%;
     color: #FFFFFF;
     display: flex;
@@ -203,6 +258,28 @@ body{
     text-align: center;
     font-size: 1.8rem;
 }
+@media (max-width: 900px) {
+
+    .hero-container {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .profile-outer,
+    .info-outer {
+        width: 90%;
+    }
+
+    .info-outer h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+
+    .info-outer p {
+        font-size: 1rem;
+    }
+}
+
 /*about*/
 #about h1{
     color: crimson;
@@ -219,7 +296,7 @@ body{
 }
 .about-text{
     margin: 30px auto;
-    width: 70%;
+    width: min(90%,800px);
     color: white;
     text-align: justify;
 }
@@ -257,15 +334,14 @@ body{
     border-radius: 10px;
 }
 .myskill-box{
-    height: 700px;
-    width: 70%;
-    margin: 30px auto;
+    width: min(90%, 1100px);
+    margin: 2rem auto;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    place-items: center;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
 }
 .myskill-box .cart{
-    height: 210px;
     width: 95%;
     background: linear-gradient(crimson, purple,blue);
     border-radius: 20px;
@@ -321,12 +397,12 @@ body{
     border-radius: 10px;
 }
 .myservices-box{
-    height: 220px;
-    width: 70%;
-    margin: 30px auto;
+    width: min(90%, 1100px);
+    margin: 2rem auto;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    place-items: center;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
 }
 .myservices-box .cart{
     height: 210px;
@@ -365,7 +441,6 @@ body{
 }
 /*Latest project*/
 #latestproject{
-    height: 350px;
     width: 100%;
 }
 #latestproject h1{
@@ -383,11 +458,10 @@ body{
     border-radius: 10px;
 }
 .LatestProject-box{
-    height: 220px;
-    width: min(80%, 90%);
+     width: min(90%, 1100px);
     margin: 30px auto;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     place-items: center;
     gap: 1rem;
     transition: gap 0.2s ease-in-out;
@@ -410,6 +484,7 @@ body{
     height: 100%;
     display: block;
     width: min(100%, 100%);
+    border-radius: 10px;
     transition: all 0.3s ease-in-out;
     object-fit: contain;
 }
@@ -515,7 +590,6 @@ form{
 }
 .footer-content{
     margin:10px auto;
-    height: 80px;
     width: 100%;
     background-color: rgb(198, 22, 198);
     color: #FFFFFF;
@@ -524,6 +598,54 @@ form{
     align-items: center;
     justify-content: space-around;
 }
+#here{
+    
+}
+@media (max-width: 900px) {
+
+    .cotact-section {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .let-talk,
+    .registertion-page {
+        width: 90%;
+        height: auto;
+    }
+
+    .registertion-page input,
+    .registertion-page textarea {
+        width: 100%;
+    }
+
+    .registertion-page button {
+        width: 60%;
+    }
+    #about ul{
+    
+    display: flex;
+    flex-direction: column;
+       font-size: 6vw;
+       line-height: -2px;
+
+}
+.footer-content{
+    width: 100%;
+    font-size: 1.1rem;
+    font-size: 4vw;
+    gap: 20px;
+}
+.whatsapp a{
+    bottom: 50px;
+    left: 20px; 
+    font-size: 4vw;
+    z-index: 1000;
+
+}
+}
+
 /*@media (min-width: 600px) {
   #nav {grid-area: 1 / span 6;}
   #about {grid-area: 2 / span 1;}
