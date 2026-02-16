@@ -3,11 +3,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto Slab", serif;
+    scroll-behavior: smooth;
 }
 body{
     background: linear-gradient(45deg, black,#111111, #FFFFFF);
     animation: gradient 10s ease infinite;
     background-size: 400% 400%;
+    overflow-x: hidden;
 }
 @keyframes gradient {
 	0% {
@@ -197,6 +199,7 @@ body{
 }
 
 .hero-container{
+    margin: 40px 0;
     width: 100%;
     padding: 10px;
     display: flex;
@@ -296,13 +299,13 @@ body{
 }
 .about-text{
     margin: 30px auto;
-    width: min(90%,800px);
+    width: min(90%,900px);
     color: white;
     text-align: justify;
 }
 .about-text p{
     margin-top: 15px;
-    font-size: 18px;
+    font-size: 22px;
 }
 .about-text span{
     font-weight: bold;
@@ -593,14 +596,13 @@ form{
     width: 100%;
     background-color: rgb(198, 22, 198);
     color: #FFFFFF;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    padding: 20px 40px;
+    justify-content: space-between;
 }
-#here{
-    
-}
+
 @media (max-width: 900px) {
 
     .cotact-section {
